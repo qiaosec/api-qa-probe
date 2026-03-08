@@ -1,0 +1,76 @@
+[
+  {
+    "case_id": "API-001",
+    "name": "List users returns 200",
+    "expected_status": 200,
+    "response": {
+      "status_code": 200,
+      "body": {
+        "users": [
+          {"id": 1, "email": "alice@example.com"}
+        ]
+      }
+    },
+    "required_fields": ["users"],
+    "assertions": []
+  },
+  {
+    "case_id": "API-002",
+    "name": "Login failure returns 401",
+    "expected_status": 401,
+    "response": {
+      "status_code": 401,
+      "body": {
+        "error": "invalid_credentials"
+      }
+    },
+    "required_fields": ["error"],
+    "assertions": [
+      {"path": "error", "equals": "invalid_credentials"}
+    ]
+  },
+  {
+    "case_id": "API-003",
+    "name": "Create ticket returns created ticket id",
+    "expected_status": 201,
+    "response": {
+      "status_code": 201,
+      "body": {
+        "ticket_id": "T-100",
+        "status": "open"
+      }
+    },
+    "required_fields": ["ticket_id", "status"],
+    "assertions": [
+      {"path": "status", "equals": "open"}
+    ]
+  },
+  {
+    "case_id": "API-004",
+    "name": "Delete user returns 204",
+    "expected_status": 204,
+    "response": {
+      "status_code": 200,
+      "body": {
+        "message": "deleted"
+      }
+    },
+    "required_fields": [],
+    "assertions": []
+  },
+  {
+    "case_id": "API-005",
+    "name": "Billing summary returns totals",
+    "expected_status": 200,
+    "response": {
+      "status_code": 200,
+      "body": {
+        "currency": "USD"
+      }
+    },
+    "required_fields": ["currency", "total_due"],
+    "assertions": [
+      {"path": "currency", "equals": "USD"}
+    ]
+  }
+]
