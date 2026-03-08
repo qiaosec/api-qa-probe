@@ -1,6 +1,6 @@
 # API QA Probe
 
-`API QA Probe` is a portfolio-ready Python project for API testing and QA automation.
+Python project for API testing and QA automation.
 
 It loads API test definitions from JSON, validates mock responses against expected status codes and field assertions, and generates a readable regression-style report.
 
@@ -44,6 +44,18 @@ python -m unittest discover -s tests
 ```powershell
 python -m src.api_qa_probe.cli run sample_data\api_cases.json --format markdown --output outputs\api_report.md
 ```
+
+Short output preview:
+
+```text
+## Summary
+- Total cases: 5
+- Passed: 3
+- Failed: 2
+- Pass rate: 60.0%
+```
+
+The generated example report is available in [outputs/api_report.md](outputs/api_report.md).
 
 ## What this project demonstrates
 
